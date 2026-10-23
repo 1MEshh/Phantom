@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lotl-forge"
+version = "1.0.0"
+description = "Cross-Platform Dual-Use Binary Hardening & SIEM Telemetry Verification Auditor"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "1MEshh", email = "152591660+1MEshh@users.noreply.github.com"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = []
+
+[project.scripts]
+lotl-forge = "lotl_forge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lotl_forge*"]
+
+[project.urls]
+Homepage = "https://github.com/1MEshh/Phantom"
+Repository = "https://github.com/1MEshh/Phantom"

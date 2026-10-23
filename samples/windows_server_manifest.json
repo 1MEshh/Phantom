@@ -1,0 +1,64 @@
+{
+  "hostname": "WIN-SRV-APP01.corp.internal",
+  "os": "windows",
+  "writable_path_dirs": [
+    "C:\\Temp\\SharedTools"
+  ],
+  "policy_enforcement": {
+    "wdac_enforced": false,
+    "applocker_enforced": false,
+    "sysmon_installed": true
+  },
+  "binaries": [
+    {
+      "name": "certutil.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\certutil.exe",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "policy_blocked": false
+    },
+    {
+      "name": "mshta.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\mshta.exe",
+      "sha256": "a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0",
+      "policy_blocked": false
+    },
+    {
+      "name": "rundll32.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\rundll32.exe",
+      "policy_blocked": false
+    },
+    {
+      "name": "regsvr32.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\regsvr32.exe",
+      "policy_blocked": false
+    },
+    {
+      "name": "bitsadmin.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\bitsadmin.exe",
+      "policy_blocked": true
+    },
+    {
+      "name": "wmic.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\wbem\\WMIC.exe",
+      "policy_blocked": false
+    },
+    {
+      "name": "powershell.exe",
+      "present": true,
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "policy_blocked": false
+    },
+    {
+      "name": "installutil.exe",
+      "present": true,
+      "path": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\InstallUtil.exe",
+      "policy_blocked": false
+    }
+  ]
+}

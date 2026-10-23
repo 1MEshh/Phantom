@@ -1,0 +1,41 @@
+name: CI Posture & Telemetry Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+
+jobs:
+  test-matrix:
+    name: Test (${{ matrix.os }} / Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Execute unit test suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Verify CLI offline manifest scan (Windows & Linux)
+        run: |
+          python -m lotl_forge scan --manifest samples/windows_server_manifest.json
+          python -m lotl_forge scan --manifest samples/linux_prod_manifest.json
+
+      - name: Run Zero-Leak Security Audit (Ubuntu)
+        if: runner.os == 'Linux'
+        run: bash ./scripts/security-audit.sh

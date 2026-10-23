@@ -1,0 +1,67 @@
+{
+  "hostname": "prd-k8s-worker-04.infra.internal",
+  "os": "linux",
+  "writable_path_dirs": [
+    "/opt/custom/bin"
+  ],
+  "policy_enforcement": {
+    "auditd_execve_enabled": false,
+    "apparmor_or_selinux": true
+  },
+  "binaries": [
+    {
+      "name": "python3",
+      "present": true,
+      "path": "/usr/bin/python3",
+      "mode": "04755",
+      "suid": true,
+      "sgid": false,
+      "capabilities": ["security.capability(cap_net_raw+ep)"]
+    },
+    {
+      "name": "tar",
+      "present": true,
+      "path": "/usr/bin/tar",
+      "mode": "0755",
+      "suid": false,
+      "sgid": false,
+      "capabilities": ["security.capability(cap_dac_read_search+ep)"]
+    },
+    {
+      "name": "find",
+      "present": true,
+      "path": "/usr/bin/find",
+      "mode": "04755",
+      "suid": true,
+      "sgid": false,
+      "capabilities": []
+    },
+    {
+      "name": "openssl",
+      "present": true,
+      "path": "/usr/bin/openssl",
+      "mode": "0755",
+      "suid": false,
+      "sgid": false,
+      "capabilities": []
+    },
+    {
+      "name": "curl",
+      "present": true,
+      "path": "/usr/bin/curl",
+      "mode": "0755",
+      "suid": false,
+      "sgid": false,
+      "capabilities": []
+    },
+    {
+      "name": "gdb",
+      "present": true,
+      "path": "/usr/bin/gdb",
+      "mode": "0755",
+      "suid": false,
+      "sgid": false,
+      "capabilities": []
+    }
+  ]
+}
